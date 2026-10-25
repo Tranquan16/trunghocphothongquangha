@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tin tức và hoạt động mới nhất từ Trường THPT Quang Hà.">
+    <title>Tin tức - Trường THPT Quang Hà</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Trang chủ Trường THPT Quang Hà">
+                <img class="brand-logo" src="https://thptquangha.phutho.edu.vn/upload/107932/20260401/logo_truong_QH_e66c7.jpg" alt="">
+                <span class="brand-name"><strong>TRƯỜNG THPT QUANG HÀ</strong><span>Tỉnh Phú Thọ</span></span>
+            </a>
+            <nav class="main-nav" aria-label="Điều hướng chính">
+                <a href="index.html">Trang chủ</a>
+                <a href="tin-tuc.html" aria-current="page">Tin tức</a>
+                <a href="van-ban.html">Công văn &amp; quy định</a>
+                <a href="tra-cuu.html">Tra cứu điểm</a>
+                <a href="su-kien.html">Sự kiện</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Tải trực tiếp từ website nhà trường</p>
+                <h1>Tin tức mới nhất</h1>
+                <p>Các tin được lấy từ website chính thức. Chọn tiêu đề để đọc nội dung bài viết.</p>
+            </div>
+        </section>
+        <section class="updates section">
+            <div class="container">
+                <p id="news-status" class="news-status" role="status" aria-live="polite">Đang tải tin mới nhất...</p>
+                <div class="news-grid" id="news-list"></div>
+                <nav class="news-pagination" id="news-pagination" aria-label="Phân trang tin tức" hidden>
+                    <button class="button button-dark" id="news-previous" type="button">← Tin trước</button>
+                    <span id="news-page-status" aria-live="polite"></span>
+                    <button class="button button-dark" id="news-next" type="button">Tin tiếp →</button>
+                </nav>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-bottom footer-standalone">
+            <p>Nguồn tin: Website Trường THPT Quang Hà.</p>
+            <a href="index.html">← Về trang chủ</a>
+        </div>
+    </footer>
+    <dialog class="news-dialog" id="news-dialog" aria-labelledby="news-dialog-title">
+        <div class="news-dialog-panel">
+            <button class="dialog-close" id="news-dialog-close" type="button" aria-label="Đóng bài viết">×</button>
+            <p class="card-label" id="news-dialog-date"></p>
+            <h2 id="news-dialog-title"></h2>
+            <div class="news-detail" id="news-dialog-content"></div>
+        </div>
+    </dialog>
+</body>
+</html>

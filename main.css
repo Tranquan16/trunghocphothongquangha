@@ -188,10 +188,13 @@ h3 {
     align-items: center;
     gap: 16px;
     padding: 12px 18px;
+    border: 0;
     border-radius: 5px;
     font-size: 14px;
     font-weight: 700;
+    font-family: inherit;
     transition: transform .2s ease, background-color .2s ease;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -288,6 +291,169 @@ h3 {
 
 .welcome-copy .text-link {
     margin-top: 8px;
+}
+
+.services {
+    background: var(--paper);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.service-card {
+    display: flex;
+    min-height: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+    border: 1px solid #e5edf3;
+    border-radius: 8px;
+    background: var(--white);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+a.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgb(16 43 78 / 8%);
+}
+
+.service-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 18px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--blue);
+    background: #eaf3f9;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.service-card h2,
+.service-card h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.service-card p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.service-card .text-link {
+    margin-top: auto;
+}
+
+.upcoming {
+    padding-top: 62px;
+}
+
+.upcoming-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: clamp(24px, 5vw, 44px);
+    border-radius: 10px;
+    background: #edf4f8;
+}
+
+.upcoming-panel h2 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.25;
+}
+
+.upcoming-panel p:last-child {
+    max-width: 650px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.button-dark {
+    flex-shrink: 0;
+    color: var(--white);
+    background: var(--blue-dark);
+}
+
+.button-dark:hover {
+    background: var(--navy);
+}
+
+.page-hero {
+    padding: 62px 0 66px;
+    color: var(--white);
+    background: linear-gradient(112deg, #12395f 0%, #17679b 62%, #328c9d 100%);
+}
+
+.page-hero .eyebrow {
+    color: #c8e4ee;
+}
+
+.page-hero h1 {
+    max-width: 760px;
+    margin: 0 0 12px;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.2;
+}
+
+.page-hero p:last-child {
+    max-width: 680px;
+    margin: 0;
+    color: #e0edf4;
+    font-size: 15px;
+}
+
+.document-grid .service-card {
+    min-height: 245px;
+}
+
+.source-note {
+    margin: 28px 0 0;
+    padding: 16px 18px;
+    border-left: 3px solid var(--gold);
+    color: var(--muted);
+    background: #f7f9fb;
+    font-size: 13px;
+}
+
+.empty-state {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(30px, 7vw, 64px);
+    border: 1px solid #e5edf3;
+    border-radius: 10px;
+    background: var(--paper);
+    text-align: center;
+}
+
+.empty-state .service-icon {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 18px;
+}
+
+.empty-state h2 {
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-size: clamp(22px, 4vw, 30px);
+}
+
+.empty-state p {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 14px;
 }
 
 .updates {
@@ -401,6 +567,30 @@ h3 {
 
 .news-status[hidden] {
     display: none;
+}
+
+.news-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.news-pagination[hidden] {
+    display: none;
+}
+
+.news-pagination button:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+    transform: none;
+}
+
+.news-pagination span {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .news-source-label {
@@ -565,6 +755,12 @@ h3 {
     margin: 0;
 }
 
+.footer-standalone {
+    min-height: 72px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .footer-bottom a:hover {
     color: var(--white);
 }
@@ -630,8 +826,17 @@ h3 {
         gap: 24px;
     }
 
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
     .news-grid {
         grid-template-columns: 1fr;
+    }
+
+    .upcoming-panel {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .news-card {
@@ -661,6 +866,11 @@ h3 {
 
     .link-list {
         width: 100%;
+    }
+
+    .news-pagination {
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
 

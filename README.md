@@ -1,14 +1,20 @@
 # Website THPT Quang Hà
 
-Trang tin lấy danh sách bài viết và nội dung bài từ website chính thức của trường, sau đó hiển thị ngay trên trang này. Chọn một tin để đọc trong cửa sổ nội dung; trang không điều hướng sang website nguồn.
+Cổng thông tin chia nội dung thành các trang riêng để dễ theo dõi:
+
+- `index.html`: trang chủ và các lối tắt.
+- `tin-tuc.html`: tin mới từ website trường, có phân trang và cửa sổ đọc bài.
+- `van-ban.html`: liên kết đến công văn, văn bản và thông báo chính thức.
+- `tra-cuu.html`: liên kết đến trang bảng điểm và thông báo tra cứu điểm thi.
+- `su-kien.html`: lịch sự kiện; chỉ hiển thị sự kiện khi có thông báo chính thức.
 
 ## Triển khai
 
-API lấy tin nằm trong `functions/api/news.js`, theo định dạng Cloudflare Pages Functions. Vì website nguồn không cho phép trình duyệt bên ngoài đọc dữ liệu trực tiếp, cần triển khai cả thư mục `functions` cùng các tệp giao diện lên Cloudflare Pages.
+API tin tức nằm trong `functions/api/news.js`, theo định dạng Cloudflare Pages Functions. Cần triển khai cả thư mục `functions` cùng các tệp giao diện lên Cloudflare Pages.
 
 1. Kết nối repository này với Cloudflare Pages.
 2. Để trống lệnh build và chọn `.` làm thư mục đầu ra.
-3. Sau khi triển khai, mở website Pages. Trang sẽ gọi `/api/news` mỗi lần tải và lấy nội dung bài khi người xem chọn tin.
+3. Sau khi triển khai, mở `tin-tuc.html`. Trang sẽ gọi `/api/news` để lấy tin và tải nội dung khi người xem chọn bài.
 
 Không mở `index.html` trực tiếp bằng `file://` để kiểm tra API; Functions chỉ chạy khi trang được phục vụ qua Cloudflare Pages. Nếu dùng hosting khác, cần chuyển API trong `functions/api/news.js` sang cơ chế backend tương ứng với hosting đó.
 

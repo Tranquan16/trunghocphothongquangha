@@ -4,6 +4,13 @@ const newsDialog = document.querySelector("#news-dialog");
 const dialogTitle = document.querySelector("#news-dialog-title");
 const dialogDate = document.querySelector("#news-dialog-date");
 const dialogContent = document.querySelector("#news-dialog-content");
+const newsPagination = document.querySelector("#news-pagination");
+const previousNewsButton = document.querySelector("#news-previous");
+const nextNewsButton = document.querySelector("#news-next");
+const newsPageStatus = document.querySelector("#news-page-status");
+const newsPerPage = 6;
+let newsArticles = [];
+let currentNewsPage = 1;
 
 function addTextElement(parent, tagName, className, text) {
     const element = document.createElement(tagName);
@@ -70,6 +77,18 @@ function createNewsCard(article) {
     return card;
 }
 
+function renderNewsPage() {
+    const pageCount = Math.ceil(newsArticles.length / newsPerPage);
+    const startIndex = (currentNewsPage - 1) * newsPerPage;
+    const pageArticles = newsArticles.slice(startIndex, startIndex + newsPerPage);
+
+    newsList.replaceChildren(...pageArticles.map(createNewsCard));
+    newsPagination.hidden = pageCount < 2;
+    previousNewsButton.disabled = currentNewsPage === 1;
+    nextNewsButton.disabled = currentNewsPage === pageCount;
+    newsPageStatus.textContent = `Trang ${currentNewsPage} / ${pageCount}`;
+}
+
 async function loadNews() {
     newsStatus.textContent = "Đang tải tin mới nhất từ website nhà trường...";
 
@@ -79,7 +98,9 @@ async function loadNews() {
             throw new Error("Nguồn tin chưa trả về bài viết nào.");
         }
 
-        newsList.replaceChildren(...data.articles.map(createNewsCard));
+        newsArticles = data.articles;
+        currentNewsPage = 1;
+        renderNewsPage();
         newsStatus.hidden = true;
     } catch (error) {
         newsStatus.textContent = `Không tải được tin tức. ${error.message} Vui lòng thử tải lại trang sau.`;
@@ -113,11 +134,25 @@ async function openArticle(article) {
     }
 }
 
-document.querySelector("#news-dialog-close").addEventListener("click", () => newsDialog.close());
-newsDialog.addEventListener("click", (event) => {
-    if (event.target === newsDialog) {
-        newsDialog.close();
-    }
-});
+if (newsList && newsStatus) {
+    previousNewsButton.addEventListener("click", () => {
+        currentNewsPage -= 1;
+        renderNewsPage();
+    });
 
-loadNews();
+    nextNewsButton.addEventListener("click", () => {
+        currentNewsPage += 1;
+        renderNewsPage();
+    });
+
+    loadNews();
+}
+
+if (newsDialog) {
+    document.querySelector("#news-dialog-close").addEventListener("click", () => newsDialog.close());
+    newsDialog.addEventListener("click", (event) => {
+        if (event.target === newsDialog) {
+            newsDialog.close();
+        }
+    });
+}
