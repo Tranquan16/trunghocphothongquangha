@@ -1,17 +1,118 @@
 <!DOCTYPE html>
-<hmtl lang = "vi">
-    <head> 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trung Hoc Pho Thong Quang Ha - Phu Tho </title>
-        <link rel="stylesheet" href="main.css">
-    <body>
-        <div>
-            <a href = ""></a>
-            <a href = ""></a>
-            <a href = ""></a>
-            <a href = ""></a>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tin tức, thông báo và thông tin học tập của Trường THPT Quang Hà, xã Bình Xuyên, tỉnh Phú Thọ.">
+    <title>Trường THPT Quang Hà - Tỉnh Phú Thọ</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#trang-chu" aria-label="Trang chủ Trường THPT Quang Hà">
+                <img class="brand-logo" src="https://thptquangha.phutho.edu.vn/upload/107932/20260401/logo_truong_QH_e66c7.jpg" alt="">
+                <span class="brand-name">
+                    <strong>TRƯỜNG THPT QUANG HÀ</strong>
+                    <span>Tỉnh Phú Thọ</span>
+                </span>
+            </a>
+            <nav class="main-nav" aria-label="Điều hướng chính">
+                <a href="#trang-chu">Trang chủ</a>
+                <a href="#gioi-thieu">Giới thiệu</a>
+                <a href="#tin-tuc">Tin tức</a>
+                <a href="#tien-ich">Tiện ích</a>
+            </nav>
         </div>
-        
-    </body>
+    </header>
+
+    <main>
+        <section class="hero" id="trang-chu">
+            <div class="container hero-content">
+                <p class="eyebrow">Cổng thông tin nhà trường</p>
+                <h1>Trường Trung học<br>Phổ thông Quang Hà</h1>
+                <p class="hero-description">Cập nhật tin tức, hoạt động giáo dục và thông báo mới nhất từ Trường THPT Quang Hà, tỉnh Phú Thọ.</p>
+                <a class="button button-light" href="#tin-tuc">Xem tin tức mới nhất <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="hero-decoration" aria-hidden="true">
+                <span class="decoration-circle"></span>
+                <span class="decoration-book">QH</span>
+            </div>
+        </section>
+
+        <section class="welcome section" id="gioi-thieu">
+            <div class="container welcome-grid">
+                <div>
+                    <p class="eyebrow">Thông tin từ nhà trường</p>
+                    <h2>Trường THPT Quang Hà<br><span>xã Bình Xuyên, Phú Thọ</span></h2>
+                </div>
+                <div class="welcome-copy">
+                    <p>Trang tin này lấy bài viết trực tiếp từ website chính thức của trường và hiển thị ngay tại đây.</p>
+                    <p>Tin mới được tải khi mở trang. Chọn một bài viết để đọc nội dung mà không rời khỏi website.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="updates section" id="tin-tuc">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Tải trực tiếp từ website nhà trường</p>
+                        <h2>Tin tức mới nhất</h2>
+                    </div>
+                    <span class="news-source-label">thptquangha.phutho.edu.vn</span>
+                </div>
+                <p id="news-status" class="news-status" role="status" aria-live="polite">Đang tải tin mới nhất...</p>
+                <div class="news-grid" id="news-list"></div>
+            </div>
+        </section>
+
+        <section class="quick-links section" id="tien-ich">
+            <div class="container quick-links-inner">
+                <div>
+                    <p class="eyebrow">Truy cập nhanh</p>
+                    <h2>Tiện ích học đường</h2>
+                </div>
+                <div class="link-list">
+                    <a href="#tin-tuc">Tin mới nhất <span aria-hidden="true">↓</span></a>
+                    <a href="#gioi-thieu">Giới thiệu nhà trường <span aria-hidden="true">↑</span></a>
+                    <a href="#lien-he">Nguồn tin và liên hệ <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="lien-he">
+        <div class="container footer-inner">
+            <div>
+                <a class="brand footer-brand" href="#trang-chu">
+                    <img class="brand-logo" src="https://thptquangha.phutho.edu.vn/upload/107932/20260401/logo_truong_QH_e66c7.jpg" alt="">
+                    <span class="brand-name">
+                        <strong>TRƯỜNG THPT QUANG HÀ</strong>
+                        <span>Tỉnh Phú Thọ</span>
+                    </span>
+                </a>
+                <p class="footer-note">Địa điểm được nhắc trong các tin hoạt động: xã Bình Xuyên, tỉnh Phú Thọ.</p>
+            </div>
+            <div class="footer-contact">
+                <h2>Nguồn thông tin</h2>
+                <p>Tin tức trên trang được lấy từ website chính thức của Trường THPT Quang Hà.</p>
+                <span class="footer-source">thptquangha.phutho.edu.vn</span>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Nguồn tin và hình ảnh: Website Trường THPT Quang Hà.</p>
+            <a href="#trang-chu">Lên đầu trang ↑</a>
+        </div>
+    </footer>
+    <dialog class="news-dialog" id="news-dialog" aria-labelledby="news-dialog-title">
+        <div class="news-dialog-panel">
+            <button class="dialog-close" id="news-dialog-close" type="button" aria-label="Đóng bài viết">×</button>
+            <p class="card-label" id="news-dialog-date"></p>
+            <h2 id="news-dialog-title"></h2>
+            <div class="news-detail" id="news-dialog-content"></div>
+        </div>
+    </dialog>
+</body>
 </html>
